@@ -40,5 +40,4 @@ if __name__ == "__main__":
             print("The care has driven {} kph".format(my_car.odometer))
         my_car.step()
         my_car.say_state()
-
         
