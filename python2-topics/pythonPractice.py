@@ -257,7 +257,163 @@ result = [name for name in flattenedName if name.count('e') >=1]
 print(result)
 
 
-# More on Functions
+#Take another example where we “flatten” a list of tuples of integers into a simple list of integers:
+some_tuples = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]
+flattened = [x for tup in some_tuples for x in tup]
+print(flattened)
+#[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+flattened = []
+for tup in some_tuples:
+    for x in tup:
+        flattened.append(x)
+print(flattened)
+
+#list of lists
+some_list= [[x for x in tup] for tup in some_tuples]
+some_list[0][0]=0
+print(some_list)
 
 #Anonymous (Lambda) Functions
+def short_function(x):
+    return x * 2
 
+equiv_anon = lambda x: x * 2
+
+
+print(short_function(2))
+x = equiv_anon(2)
+print(x)
+
+##
+def apply_to_list(some_list, f):
+    return [f(x) for x in some_list]
+ints = [4, 0, 1, 5, 6]
+y = apply_to_list(ints, lambda x: x * 2)
+print(y)
+
+print([x * 2 for x in ints])
+
+
+#As another example, suppose you wanted to sort a collection of strings by the number of distinct letters in each string:
+strings=['foo','card','bar','aaaa','abab']
+strings2=sorted(strings,key=lambda x: len(x))
+print(strings2)
+
+strings.sort(key=lambda x: len(x))
+print(strings)
+
+#define the difference sort and sorted
+#The sort method on a list modifies the list in-place, rather than returning a new list. If you don’t want to modify the original list, you can use the sorted function:
+#The sorted function returns a new list containing the sorted values and leaves the original list unchanged.
+
+
+#Generators
+
+some_dict = {'a': 1, 'b': 2, 'c': 3}
+for key in some_dict:
+    print(key)
+
+#abc
+
+#When you write for key in some_dict, the Python interpreter first attempts to create an iterator out of some_dict:
+dict_iterator = iter(some_dict)
+print(dict_iterator)
+
+
+l = list(dict_iterator)
+print(l)
+
+#A generator is a concise way to construct a new iterable object. Whereas normal functions execute and return a single result at a time, generators return a sequence of multiple results lazily, pausing after each one until the next one is requested. To create a generator, use the yield keyword instead of return in a function:
+def squares(n=10):
+    print('Generating squares from 1 to {0}'.format(n ** 2))
+    for i in range(1, n + 1):
+        yield i ** 2
+gen = squares()
+print(gen)
+
+#It is not until you request elements from the generator that it begins executing its code:
+
+for x in gen:
+    print(x, end= ' ')
+
+#Generating squares from 1 to 100
+#1 4 9 16 25 36 49 64 81 100
+
+
+#Generator expressions
+
+gen = (x ** 2 for x in range(100))
+print(gen)
+#This is completely equivalent to the following more verbose generator:
+
+def _make_gen():
+    for x in range(100):
+        yield x ** 2
+gen = _make_gen()
+# print(gen)
+
+#Generator expressions can be used instead of list comprehensions as function arguments in many cases:
+sum(x ** 2 for x in range(100))
+
+#or with dictionaries for example:
+
+dgen = dict((i, i **2) for i in range(5))
+# print(dgen)
+
+
+#{0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+
+#Itertools Module
+
+#NumPy
+
+import numpy as np
+'''
+arr1 = np.arange(10000000)
+print(arr1[0:10])
+print(type(arr1))
+l = list(range(10000000))
+print(l[0:10])
+print(type(l))'''
+
+np.random.seed(0)
+data = np.random.randn(2, 3)
+"""print(data)
+
+print(data.shape)
+print(data*10)
+print(data.dtype)"""
+
+#The easiest way to create an array is to use the array function
+data1 = [9, 17.5, 12, 0, 0.5]
+arr1 = np.array(data1)
+print(arr1)
+print(arr1.shape)
+#array([ 9. , 17.5, 12. ,  0. ,  0.5])
+
+#In addition to np.array, there are a number of other functions for creating new arrays.
+np.zeros(10)
+#array([ 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
+np.zeros((3, 6))
+
+np.empty((2, 3, 2))
+
+np.arange(15)
+#array([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])
+
+#Pandas
+
+
+import pandas as pd
+
+first_letter1=lambda x:(x[0],x)
+names = ['Alan','Adm','Wes','Will','Albert','Steven']
+namesPairs=list(map(first_letter1,names))
+print(namesPairs)
+
+df = pd.DataFrame(namesPairs, columns =['first letter','name'])
+print(df)
+x=df.groupby('first letter').groups
+print(x)
