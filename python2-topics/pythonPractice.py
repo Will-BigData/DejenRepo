@@ -197,7 +197,11 @@ print(loc_mapping)
 #{'b': 0, 'is': 1, 'cat': 2, 'far': 3, 'love': 4, 'python': 5}
 
 
+
 states = [' Alabama ', 'Georgia!', 'Georgia', 'georgia', 'FlOrIda', 'south carolina##', 'West virginia?']
+
+#re module provides support for regular expressions in Python. Regular expressions are useful for pattern matching and text manipulation (e.g., removing unwanted characters).
+
 import re
 def clean_strings(strings):
     result = []
@@ -209,6 +213,9 @@ def clean_strings(strings):
     return result
 # print(states)
 # print(clean_strings(states))
+
+
+#An alternative approach that you may find useful is to make a list of theoperations you want to apply to a particular set of strings:
 
 def remove_punctuation(value):
     return re.sub('[!#?]', '', value)
@@ -243,3 +250,14 @@ for names in all_data:
     enough_es = [name for name in names if name.count('e') >= 2]
     names_of_interest.extend(enough_es)
 print(names_of_interest)
+
+# we can wrap this whole operation up in a single nested list comprehension, like below:
+flattenedName=[x for List in all_data for x in List]
+result = [name for name in flattenedName if name.count('e') >=1]
+print(result)
+
+
+# More on Functions
+
+#Anonymous (Lambda) Functions
+

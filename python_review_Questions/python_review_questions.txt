@@ -1,0 +1,120 @@
+Python Review Questions
+
+1) What is the difference between an interpreter and a compiler? Which does Python use?
+	- https://docs.python.org/3/tutorial/interpreter.html
+    
+    Ans
+    -  Interpreter: Executes code line by line, translating and running each instruction immediately.
+        Slower but allows immediate error detection.
+
+    - Compiler: Translates the entire program into machine code or bytecode before execution. 
+        Runs faster but requires fixing all errors before running. Example: C, Java.
+    
+    - Python Uses an interpreter: Python first compiles code to bytecode and then interprets the bytecode for execution.
+     Thus, it's considered an interpreted language with a hybrid execution model.
+
+2) What is a REPL? (Read, Evaluate, Print, Loop)
+    -Is an interactive programming environment that takes user inputs (commands or code),
+    evaluates them, and returns the result.
+    - Is useful because it allows you to:
+        - Test code quickly.
+        - Learn and experiment with programming languages.
+        - Debug code interactively.
+
+3) What is a compound statement?
+    - A compound statement in Python is a statement that consists of multiple statements combined using keywords like if, else, elif, for, while, try, except, finally, with, and def.
+     These keywords define the structure and control flow of the compound statement.
+
+4) What data types do we have by default in Python?
+   - Python has several built-in data types:
+     - Numeric Types:
+        - int: Represents whole numbers (e.g., 1, 2, -3).
+        - float: Represents floating-point numbers (e.g., 3.14, -2.7).
+        - complex: Represents complex numbers (e.g., 1 + 2j).
+    - Text Type:
+        - str: Represents a sequence of characters (e.g., "Hello, World!").
+    - Boolean Type:
+        - bool: Represents True or False values.
+    - Sequence Types:
+        - list: An ordered, mutable collection of items (e.g., [1, 2, "three"]).
+        - tuple: An ordered, immutable collection of items (e.g., (1, 2, "three")).
+        - range: Represents an immutable sequence of numbers (e.g., range(1, 5)).
+    - Mapping Type:
+        - dict: Represents a collection of key-value pairs (e.g., {"name": "Alice", "age": 30}).
+    - Set Types:
+        - set: An unordered collection of unique items (e.g., {1, 2, 3}).
+        - frozenset: An immutable version of a set.
+    - None Type:
+        - None: Represents the absence of a value.
+5) What is a namespace?
+    - A namespace in Python is a mapping of names to objects. It's like a directory or container that stores and organizes identifiers (variables, functions, classes, modules, etc.).
+    -  Namespaces help prevent naming conflicts by providing a way to isolate objects with the same name.
+     
+     * Types of Namespaces in Python:
+        - Built-in Namespace:
+            Contains the names of built-in functions and exceptions, such as print(), len(), and int().
+            Available everywhere in the program.
+        - Global Namespace:
+            Contains names defined at the top level of a module or script.
+            These are the variables and functions defined in the global scope of the program.
+        - Local Namespace:
+            Contains names defined within a function or class.
+            The namespace is created when the function or method is called and destroyed when the function returns.
+        - Enclosing Namespace:
+            This refers to the namespace of an enclosing function, specifically for nested functions (functions defined inside other functions).
+
+6) What is the scope of a variable?
+    - The scope of a variable refers to the region of a program where that variable is accessible.
+     It can be local (inside a function), global (throughout the program), or nonlocal/enclosing (in nested functions).
+
+7) What are the different operators we have in Python?
+    - Python has several types of operators:
+        Arithmetic: +, -, *, /, //, %, **
+        Comparison: ==, !=, >, <, >=, <=
+        Logical: and, or, not
+        Bitwise: &, |, ^, ~, <<, >>
+        Assignment: =, +=, -=, etc.
+        Membership: in, not in
+        Identity: is, is not
+
+8) What are functions?
+    - Functions are reusable blocks of code that perform a specific task.
+     They can take input (parameters) and return output (return values). They help modularize and organize code.
+
+9) What is a lambda function? What is the syntax for creating a lambda?
+    - A lambda function is an anonymous, one-line function defined using the lambda keyword.
+     It can have any number of arguments but only one expression.
+        Syntax: lambda arguments: expression Example: lambda x, y: x + y
+
+10) What is a list?
+	- https://docs.python.org/3/tutorial/datastructures.html
+
+11) What is a set?
+
+12) What is a tuple?
+
+13) What is a Dictionary?
+
+14) How can we open a file? What are the different modes for opening a file?
+	- https://docs.python.org/3/tutorial/inputoutput.html
+
+15) What is a module? How do we import a module?
+	- https://docs.python.org/3/tutorial/modules.html
+
+16) What is a datetime object?
+
+17) What are Regular Expressions? How do we use them?
+
+18) What are some data collections we have at our disposal in the Collections module?
+
+19) What is a class? What is an object?
+	- https://docs.python.org/3/tutorial/classes.html
+
+20) What are the pillars of Object Oriented Programming? (OOP) Explain them.
+	- https://medium.com/swlh/the-4-pillars-of-oop-in-python-9daaca4c0d13
+
+21) Know the different flow control statements (if/elif/else, for loops, while loops, etc.)
+	- https://docs.python.org/3/tutorial/controlflow.html
+
+22) What are exceptions? How can we handle them?
+	- https://docs.python.org/3/tutorial/errors.html
